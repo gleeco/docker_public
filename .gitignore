@@ -2,3 +2,4 @@
 .vagrant
 out
 
+bin/shipyard-agent
