@@ -23,7 +23,8 @@ stop(){
 start(){
 	mkdir -p $APPS/zookeeper/data
 	mkdir -p $APPS/zookeeper/logs
-	sudo docker rm zookeeper > /dev/null 2>&1
+    (sudo docker rm zookeeper > /dev/null 2>&1) || true
+
 	ZOOKEEPER=$(docker run \
 		-d \
 		-p 2181:2181 \
@@ -80,7 +81,7 @@ start(){
 
 	mkdir -p $APPS/kafka/data
 	mkdir -p $APPS/kafka/logs
-	sudo docker rm kafka > /dev/null 2>&1
+    ( sudo docker rm kafka > /dev/null 2>&1 ) || true
 	KAFKA=$(docker run \
 		-d \
 		-p 9092:9092 \
